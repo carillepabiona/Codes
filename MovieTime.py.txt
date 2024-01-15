@@ -1,0 +1,48 @@
+class StudentList:
+    def __init__(self):
+        self.students = {}
+
+    def input_students(self, count):
+        for i in range(count):
+            sNumber = int(input("Enter Student number {}: ".format(i + 1)))
+            fName = input("Enter first name {}: ".format(i + 1))
+            self.students[sNumber] = fName
+            
+            
+            
+#display entries in seperate lines
+    def display_students(self):
+        print("Student List:")
+        #for(Map.Entry e: students.entrySet())
+        for sNumber, fName in self.students.items():
+            #System.out.println(e.getKey() + " : " + e.getValue());
+            print("{} - {}".format(sNumber, fName))
+
+    def main(self):
+
+        self.input_students(3)
+        self.display_students()
+
+        yoursNum = int(input("Enter your student number: "))
+        yourfName = input("Enter your first name: ")
+        self.students[yoursNum] = yourfName
+
+        if len(self.students) >= 3: # if (students.size() >= 3)
+            eStudent = list(self.students.keys())[2] #int eStudent = (int) students.keySet().toArray()[2];
+            del self.students[eStudent] #students.remove(eStudent);
+
+        self.display_students()
+
+class Scanner:
+    @staticmethod
+    def nextInt():
+        return int(input())
+
+    @staticmethod
+    def nextLine():
+        return input()
+        
+if __name__ == "__main__":
+    student_list = StudentList()
+    student_list.main()
+
